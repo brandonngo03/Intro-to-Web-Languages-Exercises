@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculator</title>
+</head>
+<body>
+
+    <!-- Input fields for price and quantity -->
+    <input type="text" id="txt-price" placeholder="Enter the price of the item">
+    <input type="text" id="txt-quantity" placeholder="Enter the quantity of the item">
+
+    <!-- Button to trigger the calculation -->
+    <button id="btn-submit">Calculate</button>
+
+    <!-- Placeholder for the output -->
+    <div id="output"></div>
+
+    <script>
+        // Get references to the input elements and the output element
+        var priceInput = document.getElementById('txt-price');
+        var quantityInput = document.getElementById('txt-quantity');
+        var submitBtn = document.getElementById('btn-submit');
+        var output = document.getElementById('output');
+
+        // Add an event listener to the button to perform the calculation
+        submitBtn.addEventListener('click', function () {
+            // Get the values entered in the input fields
+            var price = priceInput.value;
+            var quantity = quantityInput.value;
+
+            // Convert the values to numbers (if possible)
+            price = +price;
+            quantity = +quantity;
+
+            // Check if the inputs are valid numbers
+            if (Number.isNaN(price) || Number.isNaN(quantity)) {
+                // Display an error message if inputs are not valid numbers
+                output.innerHTML = 'Invalid input';
+                return; // Exit the function early
+            }
+
+            // Calculate the total price
+            var totalPrice = price * quantity;
+
+            // Round the total price to two decimal places
+            totalPrice = Math.round(totalPrice * 100) / 100;
+
+            // Display the result
+            output.innerHTML = quantity + ' items at $' + price + ' each is $' + totalPrice;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif; /* Change the font */
+    background-color: #f0f0f0; /* Change the background color */
+}
+
+#main-title {
+    text-align: center; /* Center the title */
+}
+
+.content {
+    margin-bottom: 12px; /* Add bottom margin to paragraphs */
+}
